@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 mb-4">Bird Wrangler</h1>
+    <div class="row">
+        @foreach (var bird in Model.birdWrangler.Birds)
+        {
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">@bird.Name</div>
+                    <img class="card-img-top" src="img/@bird.ImagePath" alt="Card image cap">
+                    <div class="card-body" style="display:grid;row-gap:10px;">
+                        <div class="row">
+                            <span class="col-6">Feather Color</span>
+                            <span class="col-6">@bird.FeatherColor</span>
+                        </div>
+
+                        <div class="row">
+                            <span class="col-6">Wing Span</span>
+                            <span class="col-6">@bird.WingSpan in</span>
+                        </div>
+                        <div class="row">
+                            <span class="col-6">Fed Today?</span>
+                            <span class="col-6">@bird.Fed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
